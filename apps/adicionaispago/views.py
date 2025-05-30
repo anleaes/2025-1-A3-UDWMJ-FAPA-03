@@ -13,7 +13,11 @@ def add_adicionalPago(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
+
             return redirect("core:home")  # mudar depois para listar os adicionais
+
+            return redirect("core:home.html")  # mudar depois para listar os adicionais
+
     form = AdicionaisPagoForm()
     context["form"] = form
     return render(request, template_name, context)
