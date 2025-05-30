@@ -10,3 +10,7 @@ class AdicionaisPagoForm(forms.ModelForm):
             "created_on",
             "updated_on",
         )
+        widgets = {
+            "nome": forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+            "preco": forms.NumberInput(attrs={"class": "form-control form-control-lg"}),
+        }
