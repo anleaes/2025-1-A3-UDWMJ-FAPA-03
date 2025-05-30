@@ -2,3 +2,5 @@ db.sqlite3
 GerenciamentoAcademiaDietaApp/__pycache__/*
 /apps/core/__pycache__/*
 /apps/core/migrations/*
+/apps/cliente/__pycache__/*
+/apps/cliente/migrations/*
