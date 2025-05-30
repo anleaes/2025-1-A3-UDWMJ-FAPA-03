@@ -4,3 +4,5 @@ GerenciamentoAcademiaDietaApp/__pycache__/*
 /apps/core/migrations/*
 /apps/cliente/__pycache__/*
 /apps/cliente/migrations/*
+/apps/adicionaispago/__pycache__/*
+/apps/adicionaispago/migrations/*
