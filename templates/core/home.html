@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ block.super }}
+    {{ block.super }} - Início
 {% endblock title %}
 
 {% block body %}
+<main class="container d-flex justify-content-center align-items-center flex-column gap-4" style="min-height: 100vh;">
+    <h1 class="text-center">Bem-vindo(a) à FitLife</h1>
 
-<h1>teset</h1>
-
+    <div class="d-flex flex-column gap-2 w-100" style="max-width: 300px;">
+        <a type="button" class="btn btn-primary btn-lg" href="{% url "" %}">Cadastro</a>
+        <a  type="button" class="btn btn-outline-primary btn-lg" href="{% url "" %}">Login</a>
+    </div>
+</main>
 {% endblock body %}
