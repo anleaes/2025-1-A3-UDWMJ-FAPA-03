@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+{% block body %}
+
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50" >
+        <h1 class="text-center mb-4">Crie um Adicional</h1>
+
+        <form method="POST" class="w-100">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="id_nome" class="form-label">Nome</label>
+                {{ form.nome }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_preco" class="form-label">Preço</label>
+                {{ form.preco }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        </form>
+    </div>
+</main>
+
+    <main class="container d-flex justify-content-center align-items-center flex-column gap-4" style="min-height: 100vh;">
+        <h1 class="text-center">Crie um Adicional</h1>
+
+      <form method="POST">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nome</label>
+            {{form.nome}}
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Preço</label>
+            {{form.preco}}
+        </div>
+      </form>
+        
+
+    </main>
+
+{% endblock body %}
