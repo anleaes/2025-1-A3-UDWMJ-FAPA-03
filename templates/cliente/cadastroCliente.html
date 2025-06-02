@@ -15,15 +15,24 @@
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
-        {{form.nome}}
+        {{form.primeiro_nome}}
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
+        {{form.segundo_nome}}
+        
       </div>
 
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        {% comment %} <input type="password" class="form-control" id="exampleInputPassword1"> {% endcomment %}
-        {{form.senha}}
-      </div>
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
+            {{form.email}}
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+          
 
       <div class="mb-3 form-check">
         <label class="form-check-label" for="exampleCheck1">Genero</label>
