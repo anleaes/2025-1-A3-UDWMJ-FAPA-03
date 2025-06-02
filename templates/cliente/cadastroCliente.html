@@ -14,37 +14,38 @@
 
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Primeiro Nome</label>
-        {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
         {{form.primeiro_nome}}
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
       
-      <div class="mb-3">
+      <div class="mb-3 ">
         <label for="exampleInputEmail1" class="form-label">Segundo Nome</label>
-        {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
         {{form.segundo_nome}}
         
       </div>
 
       <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            {% comment %} <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> {% endcomment %}
+            <label for="exampleInputEmail1" class="form-label">Email </label>
             {{form.email}}
-            <div id="emailHelp" class="form-text">Nós nunca iremos compartilhar essa informação com ninguém.</div>
-        </div>
+            
+      </div>
           
 
       <div class="mb-3 form-check">
-        <label class="form-check-label" for="exampleCheck1">Genero</label>
-        {{form.genero}}
+        {{ form.genero }}
       </div>
 
-      <div class="mb-3 form-check">
-        <label class="form-check-label" for="exampleCheck1">Adicionais pagos</label>
-        {{form.item_cliente}}
-      </div>
+      {% for checkbox in form.item_cliente %}
+        <div class="form-check">
+          {{ checkbox.tag }}  
+          <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+            {{ checkbox.choice_label }}
+          </label>
+        </div>
+      {% endfor %}
 
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+      <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+
     </form>
   </div>
 </main>

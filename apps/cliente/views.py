@@ -13,7 +13,7 @@ def create_cliente(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return redirect("core:Home")  # depois criar uma tela escrito HomeCliente
+            return redirect("core:home")  # depois criar uma tela escrito HomeCliente
     form = ClienteForm()
     context["form"] = form
     return render(request, template_name, context)
