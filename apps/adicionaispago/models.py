@@ -12,4 +12,4 @@ class AdicionaisPagos(models.Model):
         verbose_name_plural = "adicionaispagos"
 
     def __str__(self):
-        return self.name
+        return self.nome

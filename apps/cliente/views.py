@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Cliente, AdicionaisPagos, ItemCliente
-from forms import ClienteForm
+from .forms import ClienteForm
 
 
 # Create your views here.
