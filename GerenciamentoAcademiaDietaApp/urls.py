@@ -21,9 +21,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include
 
+from apps.cliente import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("core.urls", namespace="core")),
+    # path("cliente/", include("cliente.urls", namespace="cliente")),
     path("adicionalPago/", include("adicionaispago.urls", namespace="adicionaisPago")),
 ]
 
