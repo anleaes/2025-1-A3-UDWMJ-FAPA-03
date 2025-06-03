@@ -7,6 +7,8 @@
 
 {% block body %}
 {% include "./components/navbar.html" %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+
   <table class="table">
             <thead>
                 <tr>
@@ -49,8 +51,8 @@
                             </ul>
                         </td>
                         <td>
-                            <a href="{% url 'editar_cliente' c.id %}">Editar</a> |
-                            <a href="{% url 'excluir_cliente' c.id %}">Excluir</a>
+                            <a href="">Editar</a> |
+                            <a href="">Excluir</a>
                         </td>
                     </tr>
                 {% endfor %}
