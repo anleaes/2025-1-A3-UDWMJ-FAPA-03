@@ -13,7 +13,22 @@ def create_cliente(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return redirect("core:home")  # depois criar uma tela escrito HomeCliente
+            return redirect(
+                "cliente:list_clientes"
+            )  # depois criar uma tela escrito HomeCliente
     form = ClienteForm()
     context["form"] = form
+    return render(request, template_name, context)
+
+
+def list_clientes(request):
+    template_name = "cliente/list_clientes.html"
+    item_cliente = ItemCliente.objects.filter()
+    adicionaisPagos = AdicionaisPagos.objects.filter()
+    clientes = Cliente.objects.filter()
+    context = {
+        "cliente": clientes,
+        "adicionaisPagos": adicionaisPagos,
+        "item_cliente": item_cliente,
+    }
     return render(request, template_name, context)
