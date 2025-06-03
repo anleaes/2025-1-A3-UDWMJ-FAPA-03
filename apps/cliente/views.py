@@ -48,7 +48,7 @@ def edit_cliente(request, id_cliente):
     return render(request, template_name, context)
 
 
-def delete_cliente(request, id_client):
-    client = Cliente.objects.get(id=id_client)
+def delete_cliente(request, id_cliente):
+    client = Cliente.objects.get(id=id_cliente)
     client.delete()
-    return redirect("clients:list_clients")
+    return redirect("cliente:list_clientes")
