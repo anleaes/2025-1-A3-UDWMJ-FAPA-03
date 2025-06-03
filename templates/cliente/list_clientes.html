@@ -7,36 +7,55 @@
 
 {% block body %}
 {% include "./components/navbar.html" %}
-    <main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
-        <table class="table table-hover">
+  <table class="table">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Primeiro Nome</th>
+                    <th>Segundo Nome</th>
+                    <th>Endereço</th>
+                    <th>Email</th>
+                    <th>Gênero</th>
+                    <th>Adicionais Pagos</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                </tr>
+                {% for c in cliente %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.primeiro_nome }}</td>
+                        <td>{{ c.segundo_nome }}</td>
+                        <td>{{ c.endereco }}</td>
+                        <td>{{ c.email }}</td>
+                        <td>
+                            {% if c.genero == "M" %}
+                                Masculino
+                            {% elif c.genero == "F" %}
+                                Feminino
+                            {% else %}
+                                Outro
+                            {% endif %}
+                        </td>
+                        <td>
+                            <ul>
+                                {% for item in item_cliente %}
+                                    {% if item.cliente.id == c.id %}
+                                        <li>{{ item.adicionaisPago.nome }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="{% url 'editar_cliente' c.id %}">Editar</a> |
+                            <a href="{% url 'excluir_cliente' c.id %}">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+
     </main>
 {% endblock body %}
