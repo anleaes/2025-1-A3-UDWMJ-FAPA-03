@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Cliente, AdicionaisPagos, ItemCliente
 from .forms import ClienteForm
 
@@ -32,3 +32,23 @@ def list_clientes(request):
         "item_cliente": item_cliente,
     }
     return render(request, template_name, context)
+
+
+def edit_cliente(request, id_cliente):
+    template_name = "cliente/cadastroCliente.html"
+    context = {}
+    client = get_object_or_404(Cliente, id=id_cliente)
+    if request.method == "POST":
+        form = ClienteForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect("cliente:list_clientes")
+    form = ClienteForm(instance=client)
+    context["form"] = form
+    return render(request, template_name, context)
+
+
+def delete_cliente(request, id_client):
+    client = Cliente.objects.get(id=id_client)
+    client.delete()
+    return redirect("clients:list_clients")
