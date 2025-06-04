@@ -51,8 +51,8 @@
                             </ul>
                         </td>
                         <td>
-                            <a href="{% url 'cliente:edit_cliente' c.id %}">Editar</a> |
-                            <a href="{% url 'cliente:delete_cliente' c.id %}">Excluir</a>
+                            <a class="btn btn-primary" href="{% url 'cliente:edit_cliente' c.id %}">Editar</a> 
+                            <a class="btn btn-danger" href="{% url 'cliente:delete_cliente' c.id %}">Excluir</a>
                         </td>
                     </tr>
                 {% endfor %}
