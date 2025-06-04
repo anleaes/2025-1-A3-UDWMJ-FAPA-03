@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+
+{% block body %}
+{% include "./components/navbar.html" %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+
+  <table class="table">
+            <thead>
+                <a class="btn btn-primary" href="{% url 'adicionaisPago:add_adicionalPago'%}">Criar Adicional Pago</a> 
+
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ap in adicionaisPagos %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.nome }}</td>
+                        <td>{{ c.preco }}</td>
+                            <a class="btn btn-primary" href="{% url 'cliente:edit_cliente' c.id %}">Editar</a> 
+                            <a class="btn btn-danger" href="{% url 'cliente:delete_cliente' c.id %}">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </main>
+{% endblock body %}
