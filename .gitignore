@@ -6,3 +6,4 @@ GerenciamentoAcademiaDietaApp/__pycache__/*
 /apps/cliente/migrations/*
 /apps/adicionaispago/__pycache__/*
 /apps/adicionaispago/migrations/*
+# .env
