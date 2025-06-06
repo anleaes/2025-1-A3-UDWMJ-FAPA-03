@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 from apps.accounts.forms import UserForm
 
 
@@ -19,3 +21,17 @@ def add_user(request):
     form = UserForm()
     context["form"] = form
     return render(request, template_name, context)
+
+
+def user_login(request):
+    template_name = "accounts/user_login.html"
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(request.GET.get("next", "/"))
+        else:
+            return redirect("accounts:user_login")
+    return render(request, template_name, {})
