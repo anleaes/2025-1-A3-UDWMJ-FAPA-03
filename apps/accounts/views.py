@@ -53,6 +53,7 @@ def user_change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
+            return redirect("cliente:list_clientes")
         else:
             return redirect("accounts:user_login")
     form = PasswordChangeForm(user=request.user)
@@ -69,6 +70,8 @@ def user_change_information(request, username):
         form = UserChangeInformationForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            return redirect("cliente:list_clientes")
+
     form = UserChangeInformationForm(instance=user)
     context["form"] = form
     return render(request, template_name, context)
