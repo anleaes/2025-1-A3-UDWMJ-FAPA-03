@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+{% include "../cliente/components/navbar.html" %}
+{% block body %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="w-50">
+    <h1 class="text-center mb-4">Login</h1>
+
+    <form method="POST" action="" class="w-100">
+      {% csrf_token %}
+      
+      
+      <div class="mb-3 ">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Senha</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" required>
+      </div>
+      <a class='btn btn-primary' href="{% url 'cliente:list_clientes' %}">Fazer Login</a>
+
+    </form>
+  </div>
+</main>
+
+{% endblock body %}

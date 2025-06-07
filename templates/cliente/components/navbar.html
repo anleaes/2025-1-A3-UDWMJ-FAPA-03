@@ -4,6 +4,8 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    {% if user.is_authenticated %}
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -50,6 +52,15 @@
           </ul>
         </li>
       </ul>
-    </div>  
+    </div>
+      <div class='d-flex align-items-center justify-content-between ' style='width: 400px;'>
+         <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <p class='mb-0'>Olá {{user.get_full_name|default:user.username}}</p>
+      </div>
+    {% endif %}  
+
   </div>
 </nav>
