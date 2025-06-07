@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+{% include "../cliente/components/navbar.html" %}
+{% block body %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="w-50">
+    <h1 class="text-center mb-4">Login</h1>
+    <form method="POST" action="" class="w-100">
+      {% csrf_token %}
+
+      <div class="mb-3 ">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+      </div>
+
+      <button type="submit" class='btn btn-primary'>Fazer Login</button>
+    </form>
+
+  </div>
+</main>
+
+{% endblock body %}
