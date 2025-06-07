@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% comment %} {% load widget_tweaks %} {% endcomment %}
+
+{% block title %}
+    Novo usuario - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="w-50">
+    <h1 class="text-center mb-4">Alterar Usuário</h1>
+
+    <form method="POST" action="" class="w-100">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="first_name" class="form-label">Primeiro nome</label>
+        {{ form.first_name }}
+      </div>
+
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Sobrenome</label>
+        {{ form.last_name }}
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        {{ form.email}}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Salvar</button>
+    </form>
+  </div>
+</main>
+
+
+{% endblock body %}

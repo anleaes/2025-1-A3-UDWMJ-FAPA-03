@@ -32,7 +32,7 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect(request.GET.get("next", "/"))
+            return redirect(request.GET.get("next", "/cliente"))
         else:
             return redirect("accounts:user_login")
     return render(request, template_name, {})
@@ -53,7 +53,6 @@ def user_change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect("cliente:list_clientes")
         else:
             return redirect("accounts:user_login")
     form = PasswordChangeForm(user=request.user)
