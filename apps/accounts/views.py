@@ -44,20 +44,26 @@ def user_logout(request):
     return redirect("accounts:user_login")
 
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect
+
+
 @login_required(login_url="/contas/login/")
 def user_change_password(request):
     template_name = "accounts/user_change_password.html"
-    context = {}
+
     if request.method == "POST":
         form = PasswordChangeForm(user=request.user, data=request.POST)
         if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)
-        else:
+            logout(request)
             return redirect("accounts:user_login")
-    form = PasswordChangeForm(user=request.user)
-    context["form"] = form
-    return render(request, template_name, context)
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+    return render(request, template_name, {"form": form})
 
 
 @login_required(login_url="/contas/login/")
