@@ -16,8 +16,8 @@
             {{user.get_full_name|default:user.username}}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url "cliente:cadastroCliente" %}">Editar Informações</a></li>
-            <li><a class="dropdown-item" href="#">Mudar Senha</a></li>
+            <li><a class="dropdown-item" href="{% url "accounts:user_change_information" user.username  %}">Editar Informações</a></li>
+            <li><a class="dropdown-item" href="{% url "accounts:user_change_password" %}">Mudar Senha</a></li>
             <li><a class="dropdown-item" href="{% url "adicionaisPago:list_adicionaisPagos" %}">Adicionais Pagos</a></li>
             <li><a class="dropdown-item" href="{% url 'accounts:user_logout' %}">Logout</a></li>
           </ul>
