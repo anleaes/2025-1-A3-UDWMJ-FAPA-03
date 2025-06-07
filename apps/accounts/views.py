@@ -35,3 +35,9 @@ def user_login(request):
         else:
             return redirect("accounts:user_login")
     return render(request, template_name, {})
+
+
+@login_required(login_url="/contas/login/")
+def user_logout(request):
+    logout(request)
+    return redirect("accounts:user_login")
