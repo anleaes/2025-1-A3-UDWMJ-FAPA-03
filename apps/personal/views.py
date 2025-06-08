@@ -14,14 +14,14 @@ def create_personal(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return redirect("cliente:list_personais")
+            return redirect("personal:list_personais")
     form = PersonalForm()
     context["form"] = form
     return render(request, template_name, context)
 
 
 def list_personais(request):
-    template_name = "cliente/list_personais.html"
+    template_name = "personal/list_personais.html"
     personais = Personal.objects.filter()
     context = {
         "personal": personais,
@@ -32,13 +32,13 @@ def list_personais(request):
 def edit_personal(request, id_personal):
     template_name = "personal/editarPersonal.html"
     context = {}
-    client = get_object_or_404(Personal, id=id_personal)
+    personal = get_object_or_404(Personal, id=id_personal)
     if request.method == "POST":
-        form = PersonalForm(request.POST, instance=client)
+        form = PersonalForm(request.POST, instance=personal)
         if form.is_valid():
             form.save()
             return redirect("personal:list_personais")
-    form = PersonalForm(instance=client)
+    form = PersonalForm(instance=personal)
     context["form"] = form
     return render(request, template_name, context)
 
