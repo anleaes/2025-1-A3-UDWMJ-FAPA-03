@@ -5,7 +5,7 @@ from apps.personal.forms import PersonalForm
 
 # Create your views here.
 def create_personal(request):
-    template_name = "cliente/cadastroPersonal.html"
+    template_name = "personal/cadastroPersonal.html"
     context = {}
     if request.method == "POST":
         form = PersonalForm(request.POST)
