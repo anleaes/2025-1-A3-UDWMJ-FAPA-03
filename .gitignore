@@ -8,4 +8,7 @@ GerenciamentoAcademiaDietaApp/__pycache__/*
 /apps/adicionaispago/migrations/*
 /apps/accounts/__pycache__/*
 /apps/accounts/migrations/*
-# .env
+/apps/alimento/__pycache__/*
+/apps/alimento/migrations/*
+/apps/exercicio/__pycache__/*
+/apps/exercicio/migrations/*
