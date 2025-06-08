@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "adicionaispago.apps.AdicionaispagoConfig",
     "alimento.apps.AlimentoConfig",
     "apps.personal.apps.PersonalConfig",
+    "nutricionista.apps.NutricionistaConfig",
     "widget_tweaks",
 ]
 
