@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "cliente.apps.ClienteConfig",
     "adicionaispago.apps.AdicionaispagoConfig",
+    "alimento.apps.AlimentoConfig",
     "widget_tweaks",
 ]
 
