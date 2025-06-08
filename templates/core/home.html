@@ -8,8 +8,8 @@
 <main class="container d-flex justify-content-center align-items-center flex-column gap-4" style="min-height: 100vh;">
     <h1 class="text-center">Bem-vindo(a) à FitLife</h1>
 
-    <div class="d-flex flex-column gap-2 w-100" style="max-width: 300px;">
-        <a type="button" href="" class="btn btn-primary btn-lg">Cadastro</a>
-        <a  type="button" href="" class="btn btn-outline-primary btn-lg" >Login</a>
+    <div class="d-flex flex-column gap-2 w-100" :style="max-width: 300px;">
+        <a type="button" href="{% url "accounts:add_user" %}" class="btn btn-primary btn-lg">Cadastro</a>
+        <a  type="button" href="{% url "accounts:user_login" %}" class="btn btn-outline-primary btn-lg" >Login</a>
     </div>
 {% endblock body %}
