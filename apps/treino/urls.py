@@ -4,18 +4,17 @@ from . import views
 app_name = "treino"
 
 urlpatterns = [
-    # path("", views.list_orders, name="list_orders"),
-    path("adicionar/<int:id_client>/", views.add_treino, name="add_treino"),
-    # path("excluir/<int:id_order>/", views.delete_order, name="delete_order"),
-    # path(
-    #     "excluir-item/<int:id_order_item>/",
-    #     views.delete_order_item,
-    #     name="delete_order_item",
-    # ),
-    # path("adicionar-item/<int:id_order>/", views.add_order_item, name="add_order_item"),
-    # path(
-    #     "editar-status/<int:id_order>/",
-    #     views.edit_order_status,
-    #     name="edit_order_status",
-    # ),
+    path("adicionar/<int:id_cliente>/", views.add_treino, name="add_treino"),
+    path("", views.list_treinos, name="list_treinos"),
+    path("delete/<int:id_treino>/", views.delete_treino, name="delete_treino"),
+    path(
+        "add-exercicio/<int:id_treino>/",
+        views.add_treino_exercicio,
+        name="add_treino_exercicio",
+    ),
+    path(
+        "delete-exercicio/<int:id_te>/",
+        views.delete_treino_exercicio,
+        name="delete_treino_exercicio",
+    ),
 ]
