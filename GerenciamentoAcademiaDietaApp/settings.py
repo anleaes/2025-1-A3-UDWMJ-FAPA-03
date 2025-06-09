@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     "alimento.apps.AlimentoConfig",
     "apps.personal.apps.PersonalConfig",
     "nutricionista.apps.NutricionistaConfig",
+    "treino.apps.TreinoConfig",
+    # "treino.apps.TreinoConfig",
+    "exercicio.apps.ExercicioConfig",
     "widget_tweaks",
 ]
 
