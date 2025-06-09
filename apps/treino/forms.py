@@ -10,7 +10,7 @@ class TreinoForm(forms.ModelForm):
         exclude = ("client", "treino")
 
 
-class OrderItemForm(forms.ModelForm):
+class TreinoExercicioForm(forms.ModelForm):
 
     class Meta:
         model = TreinoExercicio
