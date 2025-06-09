@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+
+{% block body %}
+{% include "../cliente/components/navbar.html" %}
+    <main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for n in nutricionista %}
+            <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ n.id }}</td>
+            <td>{{ n.nome }}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'nutricionista:editNutricionista' n.id %}">Editar</a> 
+                <a class="btn btn-danger" href="{% url 'nutricionista:delete_nutricionista' n.id %}">Excluir</a>
+            </td>
+            </tr>
+        {% empty %}
+            <tr>
+            <td colspan="4" class="text-center">Nenhum personal nutricionista.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </main>
+{% endblock body %}

@@ -15,7 +15,9 @@ def add_adicionalPago(request):
             f.save()
             form.save_m2m()
 
-            return redirect("core:home")  # mudar depois para listar os adicionais
+            return redirect(
+                "cliente:list_clientes"
+            )  # mudar depois para listar os adicionais
 
     form = AdicionaisPagoForm()
     context["form"] = form

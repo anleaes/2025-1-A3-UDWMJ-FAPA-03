@@ -32,13 +32,13 @@ def list_nutricionistas(request):
 def edit_nutricionista(request, id_nutricionista):
     template_name = "nutricionista/editNutricionista.html"
     context = {}
-    client = get_object_or_404(Nutricionista, id=id_nutricionista)
+    nutricionista = get_object_or_404(Nutricionista, id=id_nutricionista)
     if request.method == "POST":
-        form = NutricionistaForm(request.POST, instance=client)
+        form = NutricionistaForm(request.POST, instance=nutricionista)
         if form.is_valid():
             form.save()
             return redirect("nutricionista:list_nutricionistas")
-    form = NutricionistaForm(instance=client)
+    form = NutricionistaForm(instance=nutricionista)
     context["form"] = form
     return render(request, template_name, context)
 
