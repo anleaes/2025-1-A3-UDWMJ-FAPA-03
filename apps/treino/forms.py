@@ -6,7 +6,7 @@ from .models import Treino, TreinoExercicio
 class TreinoForm(forms.ModelForm):
 
     class Meta:
-        model = TreinoExercicio
+        model = Treino
         exclude = ("client", "treino")
 
 

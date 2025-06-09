@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Adicionar Treino - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+
+{% include "../cliente/components/navbar.html" %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50">
+        <h2>Adicionar Treino</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="cliente">Cliente</label><br />
+            {{ form.cliente|add_class:"form-control" }}<br /><br />
+
+            <label for="nome">Nome do Treino</label><br />
+            {{ form.nome|add_class:"form-control" }}<br /><br />
+
+            <label for="descricao">Descrição</label><br />
+            {{ form.descricao|add_class:"form-control" }}<br /><br />
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+<main/>
+{% endblock body %}

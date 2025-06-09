@@ -52,6 +52,8 @@
                         </td>
                         <td>
                             <a class="btn btn-primary" href="{% url 'cliente:edit_cliente' c.id %}">Editar</a> 
+                            <a class="btn btn-primary" href="{% url 'treino:add_treino' c.id %}">Treino</a>
+                            <a class="btn btn-primary" href="#">Dieta</a>
                             <a class="btn btn-danger" href="{% url 'cliente:delete_cliente' c.id %}">Excluir</a>
                         </td>
                     </tr>
