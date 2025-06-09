@@ -1,5 +1,6 @@
 from django.db import models
 
+from cliente.models import Cliente
 from apps.exercicio.models import Exercicio
 
 
@@ -7,6 +8,7 @@ from apps.exercicio.models import Exercicio
 class Treino(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.TextField(blank=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True)
     exercicios = models.ManyToManyField(
         "exercicio.Exercicio",
         through="TreinoExercicio",
