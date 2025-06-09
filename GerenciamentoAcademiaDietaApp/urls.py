@@ -30,6 +30,7 @@ urlpatterns = [
     path("contas/", include("accounts.urls", namespace="accounts")),
     path("personal/", include("personal.urls", namespace="personal")),
     path("nutricionista/", include("nutricionista.urls", namespace="nutricionista")),
+    path("treino/", include("treino.urls", namespace="treino")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
