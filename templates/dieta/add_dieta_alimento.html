@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block body %}
+{% include "../cliente/components/navbar.html" %}
+
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50 ">
+        <h2 class="text-center mb-4">Adicionar Alimento à Dieta</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_alimento" class="form-label">Alimento</label>
+                {{ form.alimento|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_quantidade" class="form-label">Quantidade</label>
+                {{ form.quantidade|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary ">Adicionar</button>
+        </form>
+    </div>
+</main>
+{% endblock body %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% include '../cliente/components/navbar.html' %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-75">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Cliente</th>
+                <th>Descrição</th>
+                <th>Alimentos</th>
+                <th colspan="2">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dieta in dietas %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ dieta.id }}</td>
+                    <td>{{ dieta.nome }}</td>
+                    <td>{{ dieta.cliente.primeiro_nome }}</td>
+                    <td>{{ dieta.descricao }}</td>
+                    <td>
+                        {% for da in dieta.dietaalimento_set.all %}
+                        {{ da.alimento.nome }} - {{ da.quantidade }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            Nenhum alimento.
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'dieta:add_dieta_alimento' dieta.id %}">Alimento</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'dieta:delete_dieta' dieta.id %}">Excluir</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center">Nenhuma dieta cadastrada.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock body %}

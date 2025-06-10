@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
-from apps.cliente.models import Cliente
-from apps.dieta.forms import DietaAlimentoForm, DietaForm
-from apps.dieta.models import Dieta, DietaAlimento
+from cliente.models import Cliente
+from dieta.forms import DietaAlimentoForm, DietaForm
+from dieta.models import Dieta, DietaAlimento
 
 
 # Create your views here.
@@ -23,7 +23,7 @@ def add_dieta(request, id_cliente):
 
 
 def list_dietas(request):
-    template_name = "treino/list_treinos.html"
+    template_name = "dieta/list_dietas.html"
     dietas = Dieta.objects.all()
     context = {"dietas": dietas}
     return render(request, template_name, context)
@@ -35,14 +35,14 @@ def delete_dieta(request, id_dieta):
     return redirect("dieta:list_dietas")
 
 
-def add_dieta_alimento(request, id_treino):
-    template_name = "dieta/add_dieta.html"
+def add_dieta_alimento(request, id_dieta):
+    template_name = "dieta/add_dieta_alimento.html"
     context = {}
     if request.method == "POST":
         form = DietaAlimentoForm(request.POST)
         if form.is_valid():
             te = form.save(commit=False)
-            te.treino = get_object_or_404(Dieta, id=id_treino)
+            te.dieta = get_object_or_404(Dieta, id=id_dieta)
             te.save()
             return redirect("dieta:list_dietas")
     else:

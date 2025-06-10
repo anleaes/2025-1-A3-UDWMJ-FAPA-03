@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+{% load widget_tweaks %}
+
+{% block body %}
+{% include "../cliente/components/navbar.html" %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class=" w-50 ">
+        <h2 class="text-center mb-4">Adicionar Dieta</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_nome" class="form-label">Nome</label>
+                {{ form.nome|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_descricao" class="form-label">Descrição</label>
+                {{ form.descricao|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_nutricionista" class="form-label">Nutricionista</label>
+                {{ form.nutricionista|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Salvar</button>
+        </form>
+    </div>
+</main>
+{% endblock body %}
