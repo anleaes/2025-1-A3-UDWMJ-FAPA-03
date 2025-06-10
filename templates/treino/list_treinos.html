@@ -12,6 +12,7 @@
                 <th>Nome</th>
                 <th>Cliente</th>
                 <th>Descrição</th>
+                <th>Personal</th>
                 <th>Exercícios</th>
                 <th colspan="2">Ações</th>
             </tr>
@@ -24,6 +25,7 @@
                     <td>{{ treino.nome }}</td>
                     <td>{{ treino.cliente.primeiro_nome }}</td>
                     <td>{{ treino.descricao }}</td>
+                    <td>{{ treino.personal }}</td>
                     <td>
                         {% for exercicio in treino.exercicios.all %}
                             {{ exercicio.nome }}{% if not forloop.last %}, {% endif %}
