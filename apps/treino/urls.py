@@ -1,20 +1,20 @@
 from django.urls import path
 from . import views
 
-app_name = "treino"
+app_name = "dieta"
 
 urlpatterns = [
-    path("adicionar/<int:id_cliente>/", views.add_treino, name="add_treino"),
-    path("", views.list_treinos, name="list_treinos"),
-    path("delete/<int:id_treino>/", views.delete_treino, name="delete_treino"),
+    path("adicionar/<int:id_cliente>/", views.add_dieta, name="add_dieta"),
+    path("", views.list_dietas, name="list_dietas"),
+    path("delete/<int:id_dieta>/", views.delete_dieta, name="delete_dieta"),
     path(
-        "add-exercicio/<int:id_treino>/",
-        views.add_treino_exercicio,
-        name="add_treino_exercicio",
+        "add-alimento/<int:id_dieta>/",
+        views.add_dieta_alimento,
+        name="add_dieta_alimento",
     ),
     path(
-        "delete-exercicio/<int:id_te>/",
-        views.delete_treino_exercicio,
-        name="delete_treino_exercicio",
+        "delete-alimento/<int:id_da>/",
+        views.delete_dieta_alimento,
+        name="delete_dieta_alimento",
     ),
 ]
