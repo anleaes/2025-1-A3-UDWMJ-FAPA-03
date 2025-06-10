@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block body %}
+{% include "../cliente/components/navbar.html" %}
+
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50">
+        <h2 class="mb-4 text-center">Adicionar Exercício ao Treino</h2>
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Treino</label>
+                {{form.treino|add_class:"form-control"}}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Exercício</label>
+                {{form.exercicio|add_class:"form-control"}}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Séries</label>
+                {{form.series|add_class:"form-control"}}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Repetições</label>
+                {{form.repeticoes|add_class:"form-control"}}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Carga (kg)</label>
+                {{form.carga|add_class:"form-control"}}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Observação</label>
+                {{form.observacao|add_class:"form-control"}}
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
