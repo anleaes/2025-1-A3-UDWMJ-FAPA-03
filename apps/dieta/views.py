@@ -29,13 +29,13 @@ def list_dietas(request):
     return render(request, template_name, context)
 
 
-def delete_treino(request, id_dieta):
+def delete_dieta(request, id_dieta):
     treino = get_object_or_404(Dieta, id=id_dieta)
     treino.delete()
     return redirect("dieta:list_dietas")
 
 
-def add_treino_exercicio(request, id_treino):
+def add_dieta_alimento(request, id_treino):
     template_name = "dieta/add_dieta.html"
     context = {}
     if request.method == "POST":
@@ -51,7 +51,7 @@ def add_treino_exercicio(request, id_treino):
     return render(request, template_name, context)
 
 
-def delete_treino_exercicio(request, id_dieta):
+def delete_dieta_alimento(request, id_dieta):
     te = get_object_or_404(DietaAlimento, id=id_dieta)
     te.delete()
     return redirect("dieta:list_dietas")
