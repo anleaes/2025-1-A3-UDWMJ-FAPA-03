@@ -18,3 +18,5 @@ GerenciamentoAcademiaDietaApp/__pycache__/*
 /apps/nutricionista/migrations/*
 /apps/treino/__pycache__/*
 /apps/treino/migrations/*
+/apps/dieta/__pycache__/*
+/apps/dieta/migrations/*
