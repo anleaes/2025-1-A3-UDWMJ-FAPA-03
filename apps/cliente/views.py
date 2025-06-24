@@ -52,3 +52,17 @@ def delete_cliente(request, id_cliente):
     client = Cliente.objects.get(id=id_cliente)
     client.delete()
     return redirect("cliente:list_clientes")
+
+
+def search_clients(request):
+    template_name = "cliente/list_clientes.html"
+    query = request.GET.get("query")
+    item_cliente = ItemCliente.objects.filter()
+    adicionais_pagos = AdicionaisPagos.objects.filter()
+    clients = Cliente.objects.filter(segundo_nome__icontains=query)
+    context = {
+        "cliente": clients,
+        "adicionaisPagos": adicionais_pagos,
+        "item_cliente": item_cliente,
+    }
+    return render(request, template_name, context)

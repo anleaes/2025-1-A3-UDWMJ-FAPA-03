@@ -48,15 +48,16 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url "nutricionista:cadastroNutricionista" %}">Adicionar Nutricionista</a></li>
             <li><a class="dropdown-item" href="{% url "nutricionista:list_nutricionistas" %}">Listar Nutricionistas</a></li>
+            <li><a class="dropdown-item" href="{% url "alimento:add_alimento" %}">Adicionar Alimento</a></li>
             <li><a class="dropdown-item" href="{% url "dieta:list_dietas" %}">Listar Dietas</a></li>
           </ul>
         </li>
       </ul>
     </div>
       <div class='d-flex align-items-center justify-content-between ' >
-         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
+         <form action="{% url 'cliente:search_clients' %}" method="GET">
+          <input name="query" type="text" placeholder="Sobrenome do cliente" aria-label="Buscar">
+          <button type="submit">Buscar</button>
         </form>
         {% comment %} <p class='mb-0'>Olá </p> {% endcomment %}
       </div>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - Início
+{% endblock title %}
+
+{% block body %}
+
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50" >
+        <h1 class="text-center mb-4">Adicionar um Alimento </h1>
+
+        <form method="POST" class="w-100">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="id_nome" class="form-label">Nome</label>
+                {{ form.nome }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_preco" class="form-label">Calorías</label>
+                {{ form.calorias }}
+            </div>
+            <div class="mb-3">
+                <label for="id_preco" class="form-label">Tipo</label>
+                {{ form.tipo }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        </form>
+    </div>
+</main>
+
+{% endblock body %}

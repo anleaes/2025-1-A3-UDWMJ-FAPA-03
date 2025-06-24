@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% include '../cliente/components/navbar.html' %}
+<main class="container-lg min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-75">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Calorias</th>
+                <th>Tipo</th>
+                <th colspan="2">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for alimento in alimentos %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ alimento.id }}</td>
+                    <td>{{ alimento.nome }}</td>
+                    <td>{{ alimento.calorias }}</td>
+                    <td>{{ alimento.tipo }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'alimento:edit_alimento' alimento.id %}">Editar</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'alimento:delete_alimento' alimento.id %}">Excluir</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center">Nenhum alimento cadastrado.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock body %}
